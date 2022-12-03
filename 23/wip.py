@@ -201,13 +201,10 @@ def move_into_hallway_or_destination(score, position, hallway, burrows, from_hal
         return
     # print_cave(hallway, burrows)
     if from_hallway:
-        can_move, candidate = is_able_to_move_to_destination(
-            position, burrows, hallway[position], hallway, True)
+        can_move, candidate = is_able_to_move_to_destination(position, burrows, hallway[position], hallway, True)
 
         if can_move:
-            new_score = score + \
-                get_distance(hallway[position], position,
-                             candidate, from_hallway)
+            new_score = score + get_distance(hallway[position], position, candidate, from_hallway)
             if new_score >= lowest_score:
                 return
             hallway_copy = hallway.copy()
@@ -309,8 +306,7 @@ movable_amphi = get_movable_amphi(burrows, hallway)
 in_burrows = movable_amphi[0]
 for burrowed in in_burrows:
     print("one more")
-    move_into_hallway_or_destination(0,
-                                     burrowed, hallway, burrows)
+    move_into_hallway_or_destination(0, burrowed, hallway, burrows)
 
 result = lowest_score
 
