@@ -10,25 +10,6 @@ hallway = ['_' if x == '.' else x for x in input[0]]
 
 burrows = [[], [], [], []]
 
-for i in range(1, 3):
-    counter = 0
-    for space in input[i]:
-        if space != '#' and space != ' ':
-            burrows[counter].append(space)
-            counter += 1
-
-print(hallway)
-print(burrows)
-
-energy = {'A': 1, 'B': 10, 'C': 100, 'D': 1000}
-
-hallway_over_burrow = {0: 2, 1: 4, 2: 6, 3: 8}
-
-
-destinations = {'A': 0, 'B': 1, 'C': 2, 'D': 3}
-destinations_reversed = {v: k for k, v in destinations.items()}
-
-
 def write_cave(file, burrows, hallway):
     for i in range(len(hallway)):
         file.write(hallway[i])
@@ -49,10 +30,31 @@ def print_cave(hallway, burrows):
             f'##{burrows[0][i]}#{burrows[1][i]}#{burrows[2][i]}#{burrows[3][i]}##')
     print()
 
+for i in range(1, 3):
+    counter = 0
+    for space in input[i]:
+        if space != '#' and space != ' ':
+            burrows[counter].append(space)
+            counter += 1
+
+
+print(hallway)
+print(burrows)
+
+energy = {'A': 1, 'B': 10, 'C': 100, 'D': 1000}
+
+hallway_over_burrow = {0: 2, 1: 4, 2: 6, 3: 8}
+
+
+destinations = {'A': 0, 'B': 1, 'C': 2, 'D': 3}
+destinations_reversed = {v: k for k, v in destinations.items()}
+
+
+
 
 print_cave(hallway, burrows)
 possible_positions_in_hallway = [x for x in list(
-    range(0, len(hallway))) if x not in hallway_over_burrow.values()]
+    range(len(hallway))) if x not in hallway_over_burrow.values()]
 
 
 def is_able_to_move_to_destination(position, burrows, amphi, hallway, in_hallway=False):
