@@ -1,4 +1,4 @@
-input = open('input.txt', 'r').read().strip().splitlines()
+input = open('evaldas.txt', 'r').read().strip().splitlines()
 
 visited_positions = set()
 
