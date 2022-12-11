@@ -16,7 +16,7 @@ for inst in input:
         screen.append(current_line)
         current_line = ''
     if abs(register_x - ((cycles % 40) - 1)) <= 1:
-        current_line += '#'
+        current_line += '█'
     else:
         current_line += '.'
     if inst == 'noop':
@@ -28,7 +28,7 @@ for inst in input:
             screen.append(current_line)
             current_line = ''
         if abs(register_x - ((cycles % 40) - 1)) <= 1:
-            current_line += '#'
+            current_line += '█'
         else:
             current_line += '.'
         cycles += 1
@@ -38,6 +38,7 @@ for inst in input:
 screen.append(current_line)
 pprint.pprint(screen)
 with open('letters.txt', 'w') as lett:
+
     for line in screen:
         lett.write(line + '\n')
 result = sum_signal_strength
