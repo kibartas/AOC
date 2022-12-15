@@ -50,9 +50,9 @@ for y_of_interest in range(constraint + 1):
             continue
         one_line_area = 2 * far_from_y + 1
         cannot_be_in_bounds.append((max(sensor[0] - far_from_y, 0), min(sensor[0] + far_from_y, constraint + 1)))
-        cannot_be_in_bounds.sort(key=lambda x: x[0])
 
     i = 0
+    cannot_be_in_bounds.sort(key=lambda x: x[0])
     while i < len(cannot_be_in_bounds) - 1:
         j = i+1
         if i == 0 and cannot_be_in_bounds[i][0] != 0:
