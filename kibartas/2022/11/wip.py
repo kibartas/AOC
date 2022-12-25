@@ -68,7 +68,6 @@ for round in range(10000):
         monkeys[i][0] = []
 
 highest_monkeys = sorted(monkey_inspection_count.values())[-2:]
-print(monkey_inspection_count)
 
 result = highest_monkeys[0] * highest_monkeys[1]
 print("Result: {}".format(result))

@@ -38,7 +38,6 @@ for inst in input:
 screen.append(current_line)
 pprint.pprint(screen)
 with open('letters.txt', 'w') as lett:
-
     for line in screen:
         lett.write(line + '\n')
 result = sum_signal_strength
